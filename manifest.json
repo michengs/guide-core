@@ -34,7 +34,7 @@
         "lib/core/events/hooks/S_SPAWN_NPC.js": "9c5dd36c9d39ceb432d28f37641afe9ec20a57d438167d0737d905687afcdb67",
         "lib/core/functions.js": "e7a86bc7871b2c17fa5034c7187bab3a593ea6b20b8a48e9b9b976cd69f20250",
         "lib/core/gui.js": "2b6379ca449a706e9bb3b11291b90ae83cebc13ec8e3a5a718637985f97d9306",
-        "lib/core/guide.js": "a6d8da050b373edd5d64b51ae180e9427056297210382bbbab4b073268fd910d",
+        "lib/core/guide.js": "d9839b2e2e3dc5a97a0349d7eebd126f3062899540b6f9ee308521e686941d18",
         "lib/core/handlers.js": "6078ae0501f975455ff992f2a5e995185dd0f0db4c059b132699b9e625760421",
         "lib/core/hooks.js": "e05a940b11b25286ad5b1affb899b675e8e605fd7aa23e58dd2e6781a978e7de",
         "lib/core/proto.js": "303dd864f7c99eaa649e562418916d3004f453769bb980f82d3e767f4479b5f8",
@@ -47,6 +47,6 @@
         "lib/speech.js": "da3ec7d014229bbc483dd7c5d68f795deed93db6d3e36c53f82f536ca65ac7a1",
         "lib/utils/powershell.js": "a5f46dc0dd7b64a0521e3998a129d106cbd4a9d7e4e29a530697c9c018179f00",
         "lib/voice.js": "7a0013c5d2e702e68ac94185235ebfb9288cfd917e4d2b0b9b65a95f73b79ed2",
-        "module.json": "911a9ee1799d686f015c6972d138b7d3dcfdb7d68ccc37865c9e2f058c1914cf"
+        "module.json": "54fb6bc6d4059cb774d7bcd84c17656e8331f5b59646a3be99941a0ccda796b3"
     }
 }

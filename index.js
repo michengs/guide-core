@@ -1,9 +1,11 @@
 "use strict";
 
+const colors = require("./lib/data/colors");
+
 const defaultParams = {
 	"colors": { "gui": {}, "general": {} },
 	"command": ["guide"],
-	"chat_name": "Guide",
+	"chat_name": "Guide"
 };
 
 /**
@@ -18,8 +20,7 @@ const defaultParams = {
  * @property {import('./lib/core/events')} events
  * @property {import('./lib/core/functions')} functions
  * @property {import('./lib/core/handlers')} handlers
- * @property {import('./lib/core/hooks')} hooks
- * @property {import('./lib/core/guide')} guide
+ * @property {import('./lib/core/zone')} zone
  * @property {import('./lib/core/gui')} gui
  * @property {import('./lib/core/commands')} commands
  */
@@ -32,48 +33,45 @@ const submodules = [
 	["events", require("./lib/core/events")],
 	["functions", require("./lib/core/functions")],
 	["handlers", require("./lib/core/handlers")],
-	["hooks", require("./lib/core/hooks")],
-	["guide", require("./lib/core/guide")],
+	["zone", require("./lib/core/zone")],
 	["gui", require("./lib/core/gui")],
-	["commands", require("./lib/core/commands")],
+	["commands", require("./lib/core/commands")]
 ];
 
-class TeraGuideCore {
+class GuideCore {
 	constructor(mod, params = {}) {
-		/** 
+		/**
 		 * @type {deps}
 		 */
-		let deps = { "mod": mod, "params": { ...defaultParams, ...params } };
+		const deps = { "mod": mod, "params": { ...defaultParams, ...params } };
 
-		submodules.forEach(submodule => {
-			deps[submodule[0]] = new submodule[1](deps);
-		});
+		submodules.forEach(submodule => deps[submodule[0]] = new submodule[1](deps));
 
 		Object.keys(deps).forEach(key => {
-			if (key !== "mod" && typeof deps[key].init === "function") {
+			if (key !== "mod" && typeof deps[key].init === "function")
 				deps[key].init();
-			}
 		});
 
 		mod.destructor = () => {
 			Object.keys(deps).forEach(key => {
-				if (key !== "mod" && typeof deps[key].destructor === "function") {
+				if (key !== "mod" && typeof deps[key].destructor === "function")
 					deps[key].destructor();
-				}
 			});
 		};
+
+		Object.assign(global, colors, deps.params.colors.general, deps.params.colors.gui);
 	}
 }
 
 class Loader {
 	load(mod, ...args) {
-		return new TeraGuideCore(mod, ...args);
+		return new GuideCore(mod, ...args);
 	}
 }
 
 module.exports.NetworkMod = function Require(mod) {
-	if(mod.info.name !== "tera-guide-core")
-		throw new Error(`Tried to require tera-guide-core module: ${mod.info.name}`);
+	if (mod.info.name !== "guide-core")
+		throw new Error(`Tried to require guide-core module: ${mod.info.name}`);
 
 	return new Loader();
 };

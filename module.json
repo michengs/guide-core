@@ -1,14 +1,14 @@
 {
     "disableAutoUpdate": false,
-    "name": "tera-guide-core",
+    "name": "guide-core",
     "options": {
         "niceName": "Guide Core",
-        "guiName": "tera-guide-core"
+        "guiName": "guide-core"
     },
     "author": "HSDN/MC",
     "description": "TERA-Guide module library.",
-    "servers": ["https://raw.githubusercontent.com/michengs/tera-guide-core/master/"],
-    "supportUrl": "https://github.com/michengs/tera-guide-core/issues",
+    "servers": ["https://raw.githubusercontent.com/michengs/guide-core/master/"],
+    "supportUrl": "https://github.com/michengs/guide-core/issues",
     "dependencies": {
         "library": "https://raw.githubusercontent.com/tera-toolbox-mods/library/master/module.json"
     }
